@@ -77,7 +77,7 @@ export default function Header() {
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
 
             <Image
-              src="/307.jpg"
+              src="/Logo.png"
               alt="Bantek logo"
               fill
               quality={100}
