@@ -103,7 +103,7 @@ export default function Header() {
 
 
         {/* DESKTOP MENU */}
-        <nav className="hidden lg:flex gap-14 ml-20 uppercase tracking-[0.25em] text-sm text-[#f3e4cf]">
+       <nav className="hidden lg:flex items-center gap-12 ml-20 uppercase text-[13px] tracking-[0.28em] text-[#f3e4cf]">
   {menu.map(item => {
     const isActive = pathname === item.path;
 
@@ -111,31 +111,34 @@ export default function Header() {
       <motion.div
         key={item.name}
         whileHover={{ y: -2 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="relative group"
+        transition={{ type: "spring", stiffness: 180 }}
+        className="relative"
       >
         <Link
-  href={item.path}
-  onClick={() => setOpen(false)}
-  className={`
-    block px-6 py-2
-    text-[clamp(1.6rem,5vw,2.4rem)]
-    tracking-[0.35em]
-    font-light
-    transition-all duration-500
+          href={item.path}
+          className={`
+            relative py-2 transition-all duration-300
+            ${isActive
+              ? "text-[#d8c1a3]"
+              : "hover:text-[#d8c1a3]"}
+          `}
+        >
+          {item.name}
 
-    ${pathname === item.path
-      ? "text-[#d8c1a3]"
-      : "text-[#f3e4cf] hover:text-[#d8c1a3]"}
-  `}
->
-  {item.name}
-</Link>
-
+          {/* ACTIVE / HOVER INDICATOR */}
+          <span
+            className={`
+              absolute left-1/2 -bottom-1 h-[1px] bg-[#d8c1a3]
+              transition-all duration-300
+              ${isActive ? "w-full -translate-x-1/2" : "w-0 group-hover:w-full"}
+            `}
+          />
+        </Link>
       </motion.div>
     );
   })}
 </nav>
+
 
 
         {/* CONTACT BUTTON */}
