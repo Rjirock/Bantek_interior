@@ -137,4 +137,5 @@ export default function ExteriorFourthSection() {
       <div className="hidden lg:block absolute top-32 right-32 w-[1px] h-56 bg-[#d8c1a3]" />
     </section>
   );
-}
+              }
+
