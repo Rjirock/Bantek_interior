@@ -58,42 +58,32 @@ export default function Header() {
 
 
 
-        <Link href="/" className="flex items-center h-full flex-shrink-0 group">
-
-          {/* LOGO HOLDER — height locked to header */}
-          <div className="
-  relative
-  h-[68px] w-[68px]
-  rounded-full
-  bg-gradient-to-br from-[#1b1b1b] via-[#0f0f0f] to-black
-  border border-[#d8c1a340]
-  shadow-[inset_0_1px_1px_rgba(255,255,255,0.14),0_8px_18px_rgba(0,0,0,0.75)]
-  transition-all duration-500
-  group-hover:scale-[1.06]
-  overflow-hidden
-">
-
-            {/* subtle crystal sheen */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
-
-            <Image
-              src="/Logo.png"
-              alt="Bantek logo"
-              fill
-              quality={100}
-              priority
-              className="
-      object-contain
-      p-1.5
-      contrast-110
-      brightness-140
-      drop-shadow-[0_2px_6px_rgba(216,193,163,0.35)]
+        <Link href="/" className="flex items-center h-full flex-shrink-0">
+  <div
+    className="
+      relative
+      h-[64px] w-[64px]
+      rounded-full
+      overflow-hidden
+      bg-transparent
+      flex items-center justify-center
     "
-            />
-
-          </div>
-
-        </Link>
+  >
+    <Image
+      src="/Logo.png"
+      alt="Bantek logo"
+      fill
+      priority
+      quality={100}
+      className="
+        object-cover
+        scale-[1.18]
+        brightness-110
+        contrast-110
+      "
+    />
+  </div>
+</Link>
 
 
 
