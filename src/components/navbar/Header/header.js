@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 'use client';
 
 import { usePathname } from 'next/navigation';
@@ -339,6 +339,4 @@ export default function Header() {
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#d8c1a3] to-transparent" />
       )}
     </header>
-  );
-}
->>>>>>> d11812bf8fc1910c4f201331bb5270d209b3c180
+
