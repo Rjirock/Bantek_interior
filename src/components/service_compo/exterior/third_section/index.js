@@ -4,134 +4,128 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    label: "Residential Project",
     title: "Modern Luxury Villa",
-    desc: "A bold architectural form with premium materials and clean geometric lines.",
-    img: "/a5.jpg"
+    highlight: "A contemporary villa crafted with bold architectural language.",
+    desc: "This modern luxury villa showcases clean geometric volumes, premium materials, and carefully designed spatial flow. The architecture balances openness and privacy while creating a strong visual identity through facade articulation and natural light integration.",
+    meta: "Residential • Villa Architecture",
+    img: "/a5.jpg",
   },
   {
+    label: "Residential Project",
     title: "Contemporary Residence",
-    desc: "Minimalist exterior blending natural textures with modern structure.",
-    img: "/a6.jpg"
+    highlight: "Minimalist architecture blended with warmth and function.",
+    desc: "Designed for modern living, this residence focuses on simplicity, proportion, and material harmony. Large openings, subtle textures, and seamless indoor-outdoor connections define the architectural experience.",
+    meta: "Residential • Contemporary Home",
+    img: "/a6.jpg",
   },
   {
+    label: "Commercial Project",
     title: "Commercial Landmark",
-    desc: "Strong facade identity designed for modern urban presence.",
-    img: "/a7.jpg"
-  }
+    highlight: "An architectural statement for urban commercial presence.",
+    desc: "This commercial project features a strong facade identity designed to stand out within the urban fabric. The architecture emphasizes visibility, efficiency, and long-term functional performance.",
+    meta: "Commercial • Architectural Design",
+    img: "/a7.jpg",
+  },
 ];
 
 export default function ExteriorThirdSection() {
   return (
-    <section className="relative py-20 sm:py-32 lg:py-56 bg-[#050505] text-[#f3e4cf] overflow-hidden">
+    <section className="relative bg-[#050505] text-[#f3e4cf] py-28 sm:py-40 lg:py-56 overflow-hidden">
 
-      {/* strong architectural depth glow */}
-      <div className="
-        absolute left-1/2 top-1/2 
-        w-[300px] h-[300px] 
-        sm:w-[600px] sm:h-[600px] 
-        lg:w-[950px] lg:h-[950px] 
-        bg-[#d8c1a325] 
-        blur-[160px] sm:blur-[220px] lg:blur-[300px]
-        -translate-x-1/2 -translate-y-1/2
-      " />
+      {/* ambient architectural glow */}
+      <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] bg-[#d8c1a320] blur-[300px] -translate-x-1/2 -translate-y-1/2" />
 
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-12 space-y-20 sm:space-y-32 lg:space-y-52">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-12 space-y-28 sm:space-y-40">
 
-        {projects.map((project, i) => (
-          <div
-            key={project.title}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-28 items-center`}
-          >
-            {/* Visual */}
+        {projects.map((project, index) => {
+          const reverse = index % 2 !== 0;
+
+          return (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <img
-                src={project.img}
-                className="
-                  w-full 
-                  h-[260px] sm:h-[400px] lg:h-[560px] 
-                  object-cover 
-                  rounded-2xl sm:rounded-[32px] lg:rounded-[42px] 
-                  shadow-[0_30px_120px_rgba(0,0,0,0.95)]
-                "
-                alt={project.title}
-              />
-
-              {/* sharp architectural frame */}
-              <div className="
-                absolute 
-                -top-6 -right-6 
-                sm:-top-12 sm:-right-12 
-                lg:-top-20 lg:-right-20 
-                w-24 h-24 sm:w-40 sm:h-40 lg:w-56 lg:h-56 
-                border border-[#d8c1a340] 
-                rounded-xl sm:rounded-2xl
-              " />
-            </motion.div>
-
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              key={project.title}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2 }}
               viewport={{ once: true }}
-              className="text-center lg:text-left"
+              className={`
+                grid grid-cols-1 lg:grid-cols-2
+                gap-14 sm:gap-20 lg:gap-28
+                items-center
+                ${reverse ? "lg:flex-row-reverse" : ""}
+              `}
             >
-              <p className="
-                uppercase 
-                tracking-[4px] sm:tracking-[7px] 
-                text-[#d8c1a3] 
-                mb-4 sm:mb-6
-                text-sm sm:text-base
-              ">
-                Featured Project
-              </p>
 
-              <h3 className="
-                text-2xl sm:text-4xl lg:text-5xl 
-                font-light 
-                mb-4 sm:mb-8
-              ">
-                {project.title}
-              </h3>
-
-              <p className="
-                text-sm sm:text-lg 
-                text-[#e6dccb]/80 
-                leading-relaxed 
-                max-w-xl 
-                mx-auto lg:mx-0
-                mb-6 sm:mb-10
-              ">
-                {project.desc}
-              </p>
-
-              <motion.span
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 120 }}
-                className="
-                  inline-flex 
-                  items-center 
-                  gap-3 sm:gap-4 
-                  text-[#d8c1a3] 
-                  uppercase 
-                  tracking-widest 
-                  text-xs sm:text-sm 
-                  border-b border-[#d8c1a3] 
-                  pb-1 
-                  cursor-pointer
-                "
+              {/* IMAGE */}
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.6 }}
+                className="relative"
               >
-                View Architecture →
-              </motion.span>
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="
+                    w-full
+                    h-[280px] sm:h-[420px] lg:h-[560px]
+                    object-cover
+                    rounded-2xl lg:rounded-[42px]
+                    shadow-[0_40px_140px_rgba(0,0,0,0.95)]
+                  "
+                />
+
+                {/* architectural frame */}
+                <div className="
+                  absolute -top-6 -right-6
+                  sm:-top-12 sm:-right-12
+                  w-24 h-24 sm:w-40 sm:h-40
+                  border border-[#d8c1a340]
+                  rounded-xl
+                " />
+              </motion.div>
+
+              {/* CONTENT */}
+              <div className="text-center lg:text-left">
+
+                <p className="uppercase tracking-[6px] text-[#d8c1a3] text-xs sm:text-sm mb-4">
+                  {project.label}
+                </p>
+
+                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light mb-4">
+                  {project.title}
+                </h3>
+
+                <p className="text-[#d8c1a3] mb-6 text-sm sm:text-base">
+                  {project.highlight}
+                </p>
+
+                <p className="text-[#e6dccb]/80 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                  {project.desc}
+                </p>
+
+                <p className="text-xs uppercase tracking-widest text-[#e6dccb]/60 mb-10">
+                  {project.meta}
+                </p>
+
+                <motion.a
+                  whileHover={{ x: 10 }}
+                  transition={{ type: "spring", stiffness: 120 }}
+                  href="#"
+                  className="
+                    inline-flex items-center gap-3
+                    uppercase tracking-widest text-xs sm:text-sm
+                    text-[#d8c1a3]
+                    border-b border-[#d8c1a3]
+                    pb-1
+                  "
+                >
+                  View Project →
+                </motion.a>
+
+              </div>
             </motion.div>
-          </div>
-        ))}
+          );
+        })}
 
       </div>
     </section>

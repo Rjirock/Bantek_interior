@@ -2,7 +2,43 @@
 
 import { motion } from "framer-motion";
 
+import emailjs from "emailjs-com";
+import { useState } from "react";
+
+
 export default function ContactSecondSection() {
+  const [loading, setLoading] = useState(false);
+const [status, setStatus] = useState(null); 
+// "success" | "error" | "loading"
+const [statusMsg, setStatusMsg] = useState("");
+
+const sendEmail = async (e) => {
+  e.preventDefault();
+
+  setLoading(true);
+  setStatus("loading");
+  setStatusMsg("Sending your inquiry…");
+
+  try {
+    await emailjs.sendForm(
+      "service_o3pxxvf",      // Service ID
+      "template_mnent0z",     // Template ID
+      e.target,
+      "e0664yrTBXVzKQs7y"     // Public Key
+    );
+
+    setStatus("success");
+    setStatusMsg("Thank you. Your inquiry has been sent successfully.");
+    e.target.reset();
+  } catch (error) {
+    console.error("EmailJS Error:", error);
+    setStatus("error");
+    setStatusMsg("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
   return (
     <section className="relative py-20 sm:py-32 lg:py-52 bg-[#060606] text-[#f3e4cf] overflow-hidden">
 
@@ -69,78 +105,154 @@ export default function ContactSecondSection() {
 
         {/* Luxury Form */}
         <motion.form
-          whileHover={{ rotateX: 4, rotateY: -4 }}
-          transition={{ type: "spring", stiffness: 120 }}
-          style={{ perspective: 1200 }}
-          className="
-            relative
-            p-6 sm:p-10 lg:p-16
-            rounded-2xl lg:rounded-[42px]
-            bg-[#141414]/85 backdrop-blur
-            border border-[#d8c1a340]
-            shadow-[0_30px_120px_rgba(0,0,0,0.95)]
-            space-y-6 sm:space-y-8 lg:space-y-10
-          "
-        >
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full bg-transparent border-b border-[#d8c1a340] py-2 sm:py-3 outline-none text-[#f3e4cf] placeholder-[#e6dccb]/50"
-          />
+  onSubmit={sendEmail}
+  transition={{ type: "spring", stiffness: 120 }}
+  style={{ perspective: 1200 }}
+  className="
+    relative
+    w-full
+    max-w-xl
+    mx-auto
+    p-6 sm:p-10 lg:p-16
+    rounded-2xl lg:rounded-[42px]
+    bg-[#141414]/90 backdrop-blur-0
+    border border-[#d8c1a340]
+    shadow-[0_30px_120px_rgba(0,0,0,0.95)]
+    space-y-6 sm:space-y-8 lg:space-y-10
+  "
+>
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full bg-transparent border-b border-[#d8c1a340] py-2 sm:py-3 outline-none text-[#f3e4cf] placeholder-[#e6dccb]/50"
-          />
 
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="w-full bg-transparent border-b border-[#d8c1a340] py-2 sm:py-3 outline-none text-[#f3e4cf] placeholder-[#e6dccb]/50"
-          />
+      {/* FULL NAME */}
+      <input
+        type="text"
+        name="full_name"
+        required
+        placeholder="Full Name"
+        className="
+          w-full bg-transparent
+          border-b border-[#d8c1a340]
+          py-2 sm:py-3
+          outline-none
+          text-[#f3e4cf]
+          placeholder-[#e6dccb]/50
+        "
+      />
 
-          <textarea
-            rows="4"
-            placeholder="Tell us about your project..."
-            className="w-full bg-transparent border-b border-[#d8c1a340] py-2 sm:py-3 outline-none text-[#f3e4cf] placeholder-[#e6dccb]/50 resize-none"
-          />
+      {/* EMAIL */}
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="Email Address"
+        className="
+          w-full bg-transparent
+          border-b border-[#d8c1a340]
+          py-2 sm:py-3
+          outline-none
+          text-[#f3e4cf]
+          placeholder-[#e6dccb]/50
+        "
+      />
 
-          <motion.button
-            whileHover={{ scale: 1.06 }}
-            transition={{ type: "spring", stiffness: 160 }}
-            className="
-              mt-4 sm:mt-8
-              px-8 sm:px-12
-              py-3 sm:py-4
-              rounded-xl
-              bg-[#d8c1a3]
-              text-black
-              uppercase
-              tracking-widest
-              text-xs sm:text-sm
-              font-medium
-              shadow-[0_15px_80px_rgba(216,193,163,0.9)]
-              hover:shadow-[0_35px_150px_rgba(216,193,163,1)]
-            "
-          >
-            Send Inquiry →
-          </motion.button>
+      {/* PHONE */}
+      <input
+        type="tel"
+        name="phone"
+        required
+        placeholder="Phone Number"
+        className="
+          w-full bg-transparent
+          border-b border-[#d8c1a340]
+          py-2 sm:py-3
+          outline-none
+          text-[#f3e4cf]
+          placeholder-[#e6dccb]/50
+        "
+      />
 
-          {/* architectural accent */}
-          <div
-            className="
-              absolute
-              -bottom-6 -right-6
-              sm:-bottom-12 sm:-right-12
-              lg:-bottom-20 lg:-right-20
-              w-20 h-20 sm:w-36 sm:h-36 lg:w-52 lg:h-52
-              border border-[#d8c1a340]
-              rounded-xl sm:rounded-2xl lg:rounded-3xl
-            "
-          />
-        </motion.form>
+      {/* MESSAGE */}
+      <textarea
+        name="message"
+        rows="4"
+        required
+        placeholder="Tell us about your project..."
+        className="
+          w-full bg-transparent
+          border-b border-[#d8c1a340]
+          py-2 sm:py-3
+          outline-none
+          resize-none
+          text-[#f3e4cf]
+          placeholder-[#e6dccb]/50
+        "
+      />
 
+      {/* SUBMIT BUTTON */}
+      <motion.button
+        type="submit"
+        disabled={loading}
+        whileHover={{ scale: 1.06 }}
+        transition={{ type: "spring", stiffness: 160 }}
+        className="
+          mt-4 sm:mt-8
+          px-8 sm:px-12
+          py-3 sm:py-4
+          rounded-xl
+          bg-[#d8c1a3]
+          text-black
+          uppercase
+          tracking-widest
+          text-xs sm:text-sm
+          font-medium
+          shadow-[0_15px_80px_rgba(216,193,163,0.9)]
+          hover:shadow-[0_35px_150px_rgba(216,193,163,1)]
+          transition
+        "
+      >
+        {loading ? "Sending..." : "Send Inquiry →"}
+      </motion.button>
+
+      {/* ARCHITECTURAL ACCENT */}
+      <div
+        className="
+          absolute
+          -bottom-6 -right-6
+          sm:-bottom-12 sm:-right-12
+          lg:-bottom-20 lg:-right-20
+          w-20 h-20 sm:w-36 sm:h-36 lg:w-52 lg:h-52
+          border border-[#d8c1a340]
+          rounded-xl sm:rounded-2xl lg:rounded-3xl
+        "
+      />
+{/* STATUS MESSAGE */}
+{status && (
+  <motion.div
+    initial={{ opacity: 0, y: 12 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    className={`
+      mt-6
+      px-5 py-4
+      rounded-xl
+      text-sm sm:text-base
+      tracking-wide
+      text-center
+      border
+      ${
+        status === "success"
+          ? "border-[#d8c1a3] text-[#d8c1a3] bg-[#0f0f0f]"
+          : status === "error"
+          ? "border-red-400 text-red-400 bg-[#0f0f0f]"
+          : "border-[#d8c1a340] text-[#e6dccb]/80 bg-[#0f0f0f]"
+      }
+    `}
+  >
+    {statusMsg}
+  </motion.div>
+)}
+
+    </motion.form>
       </div>
     </section>
   );
