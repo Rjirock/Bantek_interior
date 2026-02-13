@@ -59,9 +59,7 @@ export default function Header() {
         <Link href="/" className="flex items-center">
           <div className="relative h-[64px] w-[64px] rounded-full overflow-hidden">
             <Image
-              src="/Logo.png"
-              src="/Logo.png"
-              alt="Bantek logo"
+              src="/Logo.png"              alt="Bantek logo"
               fill
               priority
               className="object-cover scale-[1.18] brightness-110 contrast-110"
