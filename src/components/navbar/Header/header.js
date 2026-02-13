@@ -13,6 +13,8 @@ const menu = [
   { name: "Architecture", path: "/services/architect" },
   { name: "Interior", path: "/services/interior" },
   { name: "Services", path: "/services" },
+  { name: "Contact Us", path: "/contact_us" },
+  { name: "Contact Us", path: "/contact_us" },
 ];
 const menuContainer = {
   hidden: {},
@@ -59,8 +61,10 @@ export default function Header() {
 
 
         <Link href="/" className="flex items-center h-full flex-shrink-0">
-  <div
-    className="
+          <div
+            className="
+          <div
+            className="
       relative
       h-[64px] w-[64px]
       rounded-full
@@ -68,22 +72,33 @@ export default function Header() {
       bg-transparent
       flex items-center justify-center
     "
-  >
-    <Image
-      src="/Logo.png"
-      alt="Bantek logo"
-      fill
-      priority
-      quality={100}
-      className="
+          >
+            <Image
+              src="/Logo.png"
+              alt="Bantek logo"
+              fill
+              priority
+              quality={100}
+              className="
+          >
+            <Image
+              src="/Logo.png"
+              alt="Bantek logo"
+              fill
+              priority
+              quality={100}
+              className="
         object-cover
         scale-[1.18]
         brightness-110
         contrast-110
       "
-    />
-  </div>
-</Link>
+            />
+          </div>
+        </Link>
+            />
+          </div>
+        </Link>
 
 
 
@@ -93,41 +108,67 @@ export default function Header() {
 
 
         {/* DESKTOP MENU */}
-       <nav className="hidden lg:flex items-center gap-12 ml-20 uppercase text-[13px] tracking-[0.28em] text-[#f3e4cf]">
-  {menu.map(item => {
-    const isActive = pathname === item.path;
+        <nav className="hidden lg:flex items-center gap-12 ml-20 uppercase text-[13px] tracking-[0.28em] text-[#f3e4cf]">
+          {menu.map(item => {
+            const isActive = pathname === item.path;
+        <nav className="hidden lg:flex items-center gap-12 ml-20 uppercase text-[13px] tracking-[0.28em] text-[#f3e4cf]">
+          {menu.map(item => {
+            const isActive = pathname === item.path;
 
-    return (
-      <motion.div
-        key={item.name}
-        whileHover={{ y: -2 }}
-        transition={{ type: "spring", stiffness: 180 }}
-        className="relative"
-      >
-        <Link
-          href={item.path}
-          className={`
+            return (
+              <motion.div
+                key={item.name}
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 180 }}
+                className="relative"
+              >
+                <Link
+                  href={item.path}
+                  className={`
+            return (
+              <motion.div
+                key={item.name}
+                whileHover={{ y: -2 }}
+                transition={{ type: "spring", stiffness: 180 }}
+                className="relative"
+              >
+                <Link
+                  href={item.path}
+                  className={`
             relative py-2 transition-all duration-300
             ${isActive
-              ? "text-[#d8c1a3]"
-              : "hover:text-[#d8c1a3]"}
+                      ? "text-[#d8c1a3]"
+                      : "hover:text-[#d8c1a3]"}
+                      ? "text-[#d8c1a3]"
+                      : "hover:text-[#d8c1a3]"}
           `}
-        >
-          {item.name}
+                >
+                  {item.name}
+                >
+                  {item.name}
 
-          {/* ACTIVE / HOVER INDICATOR */}
-          <span
-            className={`
+                  {/* ACTIVE / HOVER INDICATOR */}
+                  <span
+                    className={`
+                  {/* ACTIVE / HOVER INDICATOR */}
+                  <span
+                    className={`
               absolute left-1/2 -bottom-1 h-[1px] bg-[#d8c1a3]
               transition-all duration-300
               ${isActive ? "w-full -translate-x-1/2" : "w-0 group-hover:w-full"}
             `}
-          />
-        </Link>
-      </motion.div>
-    );
-  })}
-</nav>
+                  />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </nav>
+                  />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </nav>
 
 
 
@@ -199,109 +240,123 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            initial={{ opacity: 0, y: -20, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.96 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
             className="
-        fixed top-[90px] left-0 w-full h-[70vh]
+        fixed top-[88px] left-1/2 -translate-x-1/2
+        w-[92%] sm:w-[80%]
+        max-w-md
         z-[999]
-        bg-black/70 backdrop-blur-2xl
-        border-b border-[#d8c1a330]
-        shadow-2xl
+        bg-black/75 backdrop-blur-2xl
+        border border-[#d8c1a330]
+        rounded-3xl
+        shadow-[0_30px_120px_rgba(0,0,0,0.85)]
+        bg-black/75 backdrop-blur-2xl
+        border border-[#d8c1a330]
+        rounded-3xl
+        shadow-[0_30px_120px_rgba(0,0,0,0.85)]
       "
           >
-
             {/* Luxury Glow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#d8c1a320] via-transparent to-transparent" />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#d8c1a320] via-transparent to-transparent" />
 
             <motion.ul
-  variants={menuContainer}
-  initial="hidden"
-  animate="show"
-  className="
-    flex flex-col
-    items-center
-    text-center
-    space-y-8
-    px-6
-  "
->
-
+              variants={menuContainer}
+              initial="hidden"
+              animate="show"
+              className="
+          relative
+          flex flex-col
+          items-center
+          text-center
+          px-6 py-8
+          space-y-6
+        "
+            >
+              {/* MENU ITEMS */}
               {menu.map(item => (
                 <motion.li
                   key={item.name}
                   variants={menuItem}
-                  className="perspective-[1000px]"
+                  whileHover={{ scale: 1.06 }}
+                  className="w-full"
                 >
                   <Link
                     href={item.path}
                     onClick={() => setOpen(false)}
                     className="
-    block
-    px-6 py-2
-    text-[clamp(1.6rem,5vw,2.4rem)]
-    tracking-[0.35em]
-    font-light
-    text-[#f3e4cf]
-    transition-all duration-500
-    hover:text-[#d8c1a3]
-  "
+                block w-full
+                py-2
+                text-[clamp(1.2rem,4.5vw,1.7rem)]
+                tracking-[0.32em]
+                font-light
+                text-[#f3e4cf]
+                transition-all duration-400
+                hover:text-[#d8c1a3]
+              "
                   >
                     {item.name}
                   </Link>
-
                 </motion.li>
               ))}
-           
 
-              {/* MOBILE CONTACT CTA */}
-              <motion.li variants={menuItem} className="pt-4">
+              {/* divider */}
+              <div className="w-14 h-[1px] bg-[#d8c1a340] my-2" />
+
+              {/* CONTACT CTA */}
+              <motion.li variants={menuItem}>
                 <Link href="tel:+91 9708218424">
-                  <button className="
-      px-12 py-3
-      rounded-full
-      bg-gradient-to-r from-[#d8c1a3] to-[#bfa27a]
-      text-black
-      font-semibold
-      tracking-[0.3em]
-      uppercase text-sm
-      shadow-[0_10px_40px_rgba(216,193,163,0.6)]
-      transition-all duration-500
-    ">
+                  <button
+                    className="
+                px-10 py-3
+                rounded-full
+                bg-gradient-to-r from-[#d8c1a3] to-[#bfa27a]
+                text-black
+                font-semibold
+                tracking-[0.28em]
+                uppercase text-xs
+                shadow-[0_12px_40px_rgba(216,193,163,0.6)]
+                transition-all duration-500
+                hover:scale-[1.05]
+              "
+                  >
                     Contact Us
                   </button>
                 </Link>
               </motion.li>
 
-
-              {/* MOBILE BOOK NOW CTA */}
+              {/* BOOK NOW CTA */}
               <motion.li variants={menuItem}>
                 <Link href="mailto:bantekbusiness@gmail.com">
-                  <button className="
-      px-12 py-3
-      rounded-full
-      border border-[#d8c1a3]
-      text-[#d8c1a3]
-      tracking-[0.3em]
-      uppercase text-sm
-      bg-black/40 backdrop-blur-xl
-      transition-all duration-500
-      hover:bg-gradient-to-r hover:from-[#f3e4cf] hover:to-[#d8c1a3]
-      hover:text-black
-      hover:shadow-[0_0_24px_rgba(216,193,163,0.55)]
-    ">
+                  <button
+                    className="
+                px-10 py-3
+                rounded-full
+                border border-[#d8c1a3]
+                text-[#d8c1a3]
+                tracking-[0.28em]
+                uppercase text-xs
+                bg-black/40 backdrop-blur-xl
+                transition-all duration-500
+                hover:bg-gradient-to-r
+                hover:from-[#f3e4cf]
+                hover:to-[#d8c1a3]
+                hover:text-black
+                hover:shadow-[0_0_28px_rgba(216,193,163,0.6)]
+              "
+                  >
                     Book Now
                   </button>
                 </Link>
               </motion.li>
-
             </motion.ul>
-
-
           </motion.div>
         )}
       </AnimatePresence>
+
+
 
 
       {/* BOTTOM GOLD LINE */}
