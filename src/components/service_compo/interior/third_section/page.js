@@ -4,99 +4,117 @@ import { motion } from "framer-motion";
 
 const services = [
   {
+    no: "01",
     title: "Luxury Living Room Design",
-    desc: "Elegant layouts with premium furniture, layered lighting, and warm material tones.",
+    desc: "Elegant layouts crafted with premium furniture, layered lighting, and warm material tones to create inviting yet sophisticated living spaces.",
     img: "/i1.jpg"
   },
   {
+    no: "02",
     title: "Bedroom Interior Styling",
-    desc: "Calm sophisticated bedrooms crafted for comfort and timeless beauty.",
+    desc: "Calm and refined bedroom environments designed for comfort, privacy, and timeless visual harmony.",
     img: "/i4.jpg"
   },
   {
+    no: "03",
     title: "Modular Kitchen Design",
-    desc: "Modern kitchens with smart storage, premium finishes, and functional planning.",
+    desc: "Highly functional modern kitchens featuring intelligent storage, premium finishes, and ergonomic planning.",
     img: "/i3.jpg"
   },
   {
+    no: "04",
     title: "False Ceiling & Lighting",
-    desc: "Architectural ceiling concepts with ambient and accent lighting layers.",
+    desc: "Architectural ceiling concepts with layered lighting that enhance depth, ambience, and spatial character.",
     img: "/ss4.jpg"
   },
   {
+    no: "05",
     title: "Custom Furniture Design",
-    desc: "Tailor-made furniture pieces crafted to match space and style perfectly.",
+    desc: "Bespoke furniture pieces crafted to integrate seamlessly with the interior architecture and lifestyle needs.",
     img: "/ss3.jpg"
   },
   {
+    no: "06",
     title: "Premium Material Selection",
-    desc: "Curated textures, stones, woods, and finishes for luxurious interiors.",
+    desc: "Curated selection of textures, stones, woods, and finishes to achieve timeless, luxurious interiors.",
     img: "/ss1.jpg"
   }
 ];
 
 export default function InteriorThirdSection() {
   return (
-    <section className="relative py-20 sm:py-32 lg:py-52 bg-[#050505] text-[#f3e4cf] overflow-hidden">
+    <section className="relative bg-[#050505] text-[#f3e4cf] py-20 sm:py-32 lg:py-52 overflow-hidden">
 
-      {/* ambient glow */}
-      <div className="absolute left-1/2 top-1/2 w-[260px] h-[260px] sm:w-[600px] sm:h-[600px] lg:w-[950px] lg:h-[950px] bg-[#d8c1a330] blur-[140px] sm:blur-[220px] lg:blur-[300px] -translate-x-1/2 -translate-y-1/2" />
+      {/* ambient architectural glow */}
+      <div className="absolute left-1/2 top-1/2 w-[900px] h-[900px] bg-[#d8c1a325] blur-[280px] -translate-x-1/2 -translate-y-1/2" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 space-y-16 sm:space-y-28 lg:space-y-44">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 space-y-24 sm:space-y-36 lg:space-y-52">
 
         {services.map((item, i) => (
           <div
             key={item.title}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 lg:gap-28 items-center"
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-28 items-center ${
+              i % 2 !== 0 ? "lg:flex-row-reverse" : ""
+            }`}
           >
             {/* IMAGE */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.1 }}
+              transition={{ duration: 1.2 }}
               viewport={{ once: true }}
               className="relative"
             >
               <img
                 src={item.img}
-                className="w-full h-[240px] sm:h-[380px] lg:h-[520px] object-cover rounded-2xl sm:rounded-[32px] lg:rounded-[42px] shadow-[0_25px_100px_rgba(0,0,0,0.95)]"
                 alt={item.title}
+                className="
+                  w-full
+                  h-[260px] sm:h-[420px] lg:h-[560px]
+                  object-cover
+                  rounded-2xl sm:rounded-[36px] lg:rounded-[46px]
+                  shadow-[0_35px_140px_rgba(0,0,0,0.95)]
+                "
               />
+
+              {/* architectural frame */}
+              <div className="hidden sm:block absolute -top-10 -right-10 w-32 h-32 border border-[#d8c1a340] rounded-xl" />
             </motion.div>
 
             {/* CONTENT */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.1 }}
               viewport={{ once: true }}
-              className="
-                bg-[#151515]/70 backdrop-blur
-                border border-[#d8c1a330]
-                rounded-2xl
-                p-6 sm:p-10
-                text-center lg:text-left
-                shadow-[0_15px_60px_rgba(0,0,0,0.8)]
-              "
+              className="max-w-xl text-center lg:text-left"
             >
-              <p className="uppercase tracking-[3px] sm:tracking-[6px] text-[#d8c1a3] mb-3 sm:mb-6 text-xs sm:text-base">
-                Interior Service
+              <p className="text-[#d8c1a3] tracking-[0.35em] text-sm mb-3">
+                {item.no}
               </p>
 
-              <h3 className="text-xl sm:text-4xl lg:text-5xl font-light mb-3 sm:mb-6">
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-light mb-4 sm:mb-6">
                 {item.title}
               </h3>
 
-              <p className="text-sm sm:text-lg text-[#e6dccb]/80 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-10">
+              <p className="text-[#e6dccb]/80 text-sm sm:text-lg leading-relaxed mb-6 sm:mb-10">
                 {item.desc}
               </p>
 
               <motion.span
-                whileHover={{ x: 8 }}
+                whileHover={{ x: 10 }}
                 transition={{ type: "spring", stiffness: 120 }}
-                className="inline-flex items-center gap-3 text-[#d8c1a3] uppercase tracking-widest text-xs sm:text-sm border-b border-[#d8c1a3] pb-1 cursor-pointer"
+                className="
+                  inline-flex items-center gap-3
+                  text-[#d8c1a3]
+                  uppercase tracking-widest
+                  text-xs sm:text-sm
+                  border-b border-[#d8c1a3]
+                  pb-1
+                  cursor-pointer
+                "
               >
-                View Projects →
+                View Interior Projects →
               </motion.span>
             </motion.div>
           </div>
