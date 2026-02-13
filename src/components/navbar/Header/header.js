@@ -198,13 +198,13 @@ export default function Header() {
 
       {/* MOBILE MENU */}
       <AnimatePresence>
-  {open && (
-    <motion.div
-      initial={{ opacity: 0, y: -20, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: -20, scale: 0.96 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      className="
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.96 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="
         fixed top-[88px] left-1/2 -translate-x-1/2
         w-[92%] sm:w-[80%]
         max-w-md
@@ -214,15 +214,15 @@ export default function Header() {
         rounded-3xl
         shadow-[0_30px_120px_rgba(0,0,0,0.85)]
       "
-    >
-      {/* Luxury Glow */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#d8c1a320] via-transparent to-transparent" />
+          >
+            {/* Luxury Glow */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#d8c1a320] via-transparent to-transparent" />
 
-      <motion.ul
-        variants={menuContainer}
-        initial="hidden"
-        animate="show"
-        className="
+            <motion.ul
+              variants={menuContainer}
+              initial="hidden"
+              animate="show"
+              className="
           relative
           flex flex-col
           items-center
@@ -230,19 +230,19 @@ export default function Header() {
           px-6 py-8
           space-y-6
         "
-      >
-        {/* MENU ITEMS */}
-        {menu.map(item => (
-          <motion.li
-            key={item.name}
-            variants={menuItem}
-            whileHover={{ scale: 1.06 }}
-            className="w-full"
-          >
-            <Link
-              href={item.path}
-              onClick={() => setOpen(false)}
-              className="
+            >
+              {/* MENU ITEMS */}
+              {menu.map(item => (
+                <motion.li
+                  key={item.name}
+                  variants={menuItem}
+                  whileHover={{ scale: 1.06 }}
+                  className="w-full"
+                >
+                  <Link
+                    href={item.path}
+                    onClick={() => setOpen(false)}
+                    className="
                 block w-full
                 py-2
                 text-[clamp(1.2rem,4.5vw,1.7rem)]
@@ -252,20 +252,20 @@ export default function Header() {
                 transition-all duration-400
                 hover:text-[#d8c1a3]
               "
-            >
-              {item.name}
-            </Link>
-          </motion.li>
-        ))}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.li>
+              ))}
 
-        {/* divider */}
-        <div className="w-14 h-[1px] bg-[#d8c1a340] my-2" />
+              {/* divider */}
+              <div className="w-14 h-[1px] bg-[#d8c1a340] my-2" />
 
-        {/* CONTACT CTA */}
-        <motion.li variants={menuItem}>
-          <Link href="tel:+91 9708218424">
-            <button
-              className="
+              {/* CONTACT CTA */}
+              <motion.li variants={menuItem}>
+                <Link href="tel:+91 9708218424">
+                  <button
+                    className="
                 px-10 py-3
                 rounded-full
                 bg-gradient-to-r from-[#d8c1a3] to-[#bfa27a]
@@ -277,17 +277,17 @@ export default function Header() {
                 transition-all duration-500
                 hover:scale-[1.05]
               "
-            >
-              Contact Us
-            </button>
-          </Link>
-        </motion.li>
+                  >
+                    Contact Us
+                  </button>
+                </Link>
+              </motion.li>
 
-        {/* BOOK NOW CTA */}
-        <motion.li variants={menuItem}>
-          <Link href="mailto:bantekbusiness@gmail.com">
-            <button
-              className="
+              {/* BOOK NOW CTA */}
+              <motion.li variants={menuItem}>
+                <Link href="mailto:bantekbusiness@gmail.com">
+                  <button
+                    className="
                 px-10 py-3
                 rounded-full
                 border border-[#d8c1a3]
@@ -302,15 +302,15 @@ export default function Header() {
                 hover:text-black
                 hover:shadow-[0_0_28px_rgba(216,193,163,0.6)]
               "
-            >
-              Book Now
-            </button>
-          </Link>
-        </motion.li>
-      </motion.ul>
-    </motion.div>
-  )}
-</AnimatePresence>
+                  >
+                    Book Now
+                  </button>
+                </Link>
+              </motion.li>
+            </motion.ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
 
 
