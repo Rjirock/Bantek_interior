@@ -60,6 +60,7 @@ export default function Header() {
           <div className="relative h-[64px] w-[64px] rounded-full overflow-hidden">
             <Image
               src="/Logo.png"
+              src="/Logo.png"
               alt="Bantek logo"
               fill
               priority
