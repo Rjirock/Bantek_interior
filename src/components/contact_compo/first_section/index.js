@@ -104,7 +104,9 @@ export default function ContactFirstSection() {
               <p className="uppercase tracking-widest text-xs sm:text-sm text-[#d8c1a3] mb-1">
                 Phone
               </p>
-              <p><a href:"tel: +91 9708218424">+91 9708218424</a></p>
+            <p>
+  <a href="tel:+919708218424">+91 9708218424</a>
+</p>
             </div>
 
             <div>
