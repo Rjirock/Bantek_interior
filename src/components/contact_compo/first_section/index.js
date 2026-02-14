@@ -43,7 +43,7 @@ export default function ContactFirstSection() {
             mb-4 sm:mb-6
             text-sm sm:text-base
           ">
-            Contact Studio
+            Contact Bantek 
           </p>
 
           <h1 className="
@@ -88,7 +88,7 @@ export default function ContactFirstSection() {
             text-[#d8c1a3]
             mb-6 sm:mb-10
           ">
-            Studio Contact
+            Contact us 
           </h3>
 
           <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-[#e6dccb]/80">
