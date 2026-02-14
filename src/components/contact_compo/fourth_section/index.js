@@ -102,7 +102,7 @@ export default function ContactFourthSection() {
 
           <div className="space-y-3 sm:space-y-6 text-[#e6dccb]/85 text-sm sm:text-base">
             <p>📍 Ranchi, Jharkhand</p>
-            <p>📞 <a href:+91 9708218424>+91 9708218424</a></p>
+            <p> 📞 <a href="tel:+919708218424">+91 9708218424</a></p>
             <p>✉️ bantekbusiness@gmail.com.com</p>
           </div>
         </motion.div>
